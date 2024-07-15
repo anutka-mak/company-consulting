@@ -59,26 +59,24 @@ table {
 
 .contact-info {
     display: flex;
-    width: 100%;
-    flex-direction: row;
-    background-color: rgb(73,101, 125);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(73, 101, 125);
     border-bottom: 1px solid #1f87e4;
 }
 
 .contact-info__left-column, .contact-info__right-column {
     display: flex;
-    flex: 1.15;
+    flex: 1;
+    gap: 20px;
     flex-direction: row;
-    gap: 15px;
-    justify-content: flex-end;
-    align-self: center;
-    align-items: center;
-    color: white;
+    justify-content: center;
+    text-align: center;
 }
 
 .contact-info__right-column {
-    flex: 1.6;
-    justify-content: center;
+    align-items: center;
 }
 
 .social-media-icons {
@@ -160,29 +158,42 @@ table {
     transition-duration: 0.2s;
 }
 
-.nav-bar {
+.contact-info__left-column, .contact-info__right-column {
     display: flex;
+    flex: 1;
+    gap: 20px;
     flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-info__right-column {
+    align-items: center;
+}
+
+.nav-bar {
+    display: grid;
+    grid-template-columns: 1fr 1.7fr;
+    gap: 30px;
     background-color: white;
-    box-shadow: 0 21px 22px -30px rgba(0,0,0,0.45);
+    justify-content: center;
+    box-shadow: 0 21px 22px -30px rgba(0, 0, 0, 0.45);
     padding: 15px 0 15px 0;
 }
 
 .nav-bar__logo, .links {
     display: flex;
-    flex: 1;
+    gap: 40px;
     flex-direction: row;
     justify-content: center;
+    text-align: center;
     align-self: center;
 }
 
 .links {
-    flex: 1.5;
-    justify-content: center;
-    align-self: center;
-    gap: 35px;
-
+    width: 78%;
     font-size: 14px;
+    justify-content: flex-end;
     text-transform: uppercase;
     font-weight: 700;
     color: #4a657d;
@@ -200,7 +211,8 @@ table {
 }
 
 .slider-section {
-    width: 100%;
+    max-width: 100%;
+    height: 951px;
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     justify-content: center;
@@ -208,7 +220,6 @@ table {
     background-image: url("images/background-image.png");
     background-size: cover;
     background-position: center;
-    height: 951px;
 }
 
 .slider-section__content {
@@ -282,20 +293,10 @@ table {
 }
 
 @media screen and (max-width: 987px) {
-    .contact-info {
-        width: 100%;
-        justify-content: left;
-    }
-
     .icon-with-text {
         text-align: left;
         justify-content: center;
         align-items: center;
-    }
-
-    .contact-info__left-column {
-        display: flex;
-        flex: 1.6;
     }
 
     .social-media-icons {
@@ -308,6 +309,21 @@ table {
 
     .intro-section {
         grid-template-columns: 1fr 1fr;
+        justify-content: flex-start;
+        gap: 50px;
+    }
+
+    .intro-section__item, .title, .description  {
+        width: 100%;
+    }
+
+    .slider-section {
+        grid-template-columns: 1fr 2fr 1fr;
+        justify-content: center;
+    }
+
+    .contact-info__left-column, .contact-info__right-column {
+        gap: 8px;
     }
 }
 
@@ -346,15 +362,25 @@ table {
     }
 
     .nav-bar {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .nav-bar__logo, .links {
+        gap: 35px;
     }
 
     .links {
-        flex: auto;
+        width: 100%;
+        justify-content: center;
         gap: 20px;
         font-size: 12px;
+    }
+
+    .nav-bar__logo {
+        justify-content: center;
+        text-align: center;
+        align-self: center;
     }
 
     .intro-section {
@@ -364,7 +390,7 @@ table {
         text-align: center;
         justify-content: center;
         padding: 50px 0;
-        gap: 20px;
+        grid-gap: 50px;
     }
 
     .intro-section__button {
@@ -375,7 +401,7 @@ table {
 
     .intro-section__item,
     .slider-section__prev-button,
-    .slider-section__next-button  {
+    .slider-section__next-button {
         width: 100%;
     }
 
@@ -392,10 +418,22 @@ table {
 
 @media screen and (max-width: 560px) {
     .contact-info {
-        display: flex;
-        padding-top: 10px;
-        flex-direction: column;
         width: 100%;
+        display: grid;
+        justify-content: center;
+        padding-top: 10px;
+    }
+
+    .contact-info__right-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.5fr;
+        gap: 10px;
+    }
+
+    .contact-info__left-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
     }
 
     .contact-info__vertical-line {
@@ -403,27 +441,32 @@ table {
     }
 
     .nav-bar {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
+        display: grid;
         justify-content: center;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 10px;
     }
 
     .nav-bar__logo {
-        width: 35%;
-        height: 35%;
+        text-align: center;
+    }
+
+    .logo {
+        max-width: 80%;
+        max-height: 80%;
     }
 
     .links {
-        display: flex;
-        flex: auto;
-        flex-direction: column;
-        justify-content: flex-end;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         align-content: center;
         align-self: center;
         gap: 10px;
         font-size: 12px;
+    }
+
+    .link {
+        flex: 1 1 30%;
     }
 
     .slider-section__next-button,
@@ -431,7 +474,6 @@ table {
         width: 100%;
     }
 
-    .contact-info__button,
     .intro-section__button {
         width: 50%;
     }
@@ -446,13 +488,5 @@ table {
         width: 100%;
         line-height: 40px;
         font-size: 40px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: #4a657d;
     }
 }
-
-
-
-
-
